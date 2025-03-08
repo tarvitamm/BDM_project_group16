@@ -1,4 +1,4 @@
-# BigData 2025 Template Repository
+# BigData 2025 project group 16
 
 ![TartuLogo](./images/logo_ut_0.png)
 
@@ -9,6 +9,8 @@ Students: **Tarvi Tamm, Markus Müüripeal, Andero Raava**
 ## Queries
 
 ### **Project 1**
+
+To run this project yourself you need to install the requirments listed below or in the [requierments.txt](./requierments.txt). The notebook with the results of the queries can be found here [project.ipynb](./mnt/project.ipynb)
 
 ### **Query 1: Compute Taxi Utilization**
 Utilization is calculated as the fraction of time a taxi is occupied with passengers. This is determined by computing **idle time**, which is the gap between consecutive trips by the same taxi.
