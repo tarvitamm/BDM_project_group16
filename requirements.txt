@@ -1,0 +1,5 @@
+pyspark
+pandas==2.0.3
+geopandas==1.0.1
+shapely==2.0.7
+requests
