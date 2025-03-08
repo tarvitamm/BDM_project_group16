@@ -1,7 +1,5 @@
 # BigData 2025 project group 16
 
-![TartuLogo](./images/logo_ut_0.png)
-
 Project [Big Data](https://courses.cs.ut.ee/2025/bdm/spring/Main/HomePage) is provided by [University of Tartu](https://courses.cs.ut.ee/).
 
 Students: **Tarvi Tamm, Markus Müüripeal, Andero Raava**
@@ -10,7 +8,7 @@ Students: **Tarvi Tamm, Markus Müüripeal, Andero Raava**
 
 ### **Project 1**
 
-To run this project yourself you need to install the requirments listed below or in the [requierments.txt](./requierments.txt). The notebook with the results of the queries can be found here [project.ipynb](./mnt/project.ipynb)
+To run this project yourself you need to install the requirments listed below or in the [requirements.txt](./requirements.txt). The notebook with the results of the queries can be found here [project.ipynb](./mnt/project.ipynb)
 
 ### **Query 1: Compute Taxi Utilization**
 Utilization is calculated as the fraction of time a taxi is occupied with passengers. This is determined by computing **idle time**, which is the gap between consecutive trips by the same taxi.
