@@ -96,13 +96,18 @@ To run this project, you need the following dependencies and versions:
 
 ## Queries
 
-1. **Data Import Query:** Loads raw data from external sources (e.g., CSV files, databases) into a working dataset.  
-2. **Data Cleaning Query:** Handles missing values, removes duplicates, and standardizes data types to prepare the dataset for analysis.  
-3. **Exploratory Data Analysis Query:** Computes summary statistics and visualizes distributions to uncover patterns and trends within the data.  
-4. **Aggregation Query:** Groups and summarizes data by relevant categories to highlight key metrics and trends.  
-5. **Visualization Query:** Creates various plots and charts to visually communicate data relationships and insights.  
-6. **Model Training Query:** Splits the data into training and testing sets, applies machine learning algorithms, and tunes model parameters.  
-7. **Model Evaluation Query:** Assesses model performance using appropriate metrics, such as accuracy, precision, recall, or RMSE.
+Query 1: Frequent Routes
+This query maps pickup and dropoff coordinates to grid cells (using a custom function) and groups trips by these cells to count how many rides occurred between each pair. It then selects and displays the top 10 most frequent routes. In addition, it simulates a streaming environment by sliding a 30‑minute time window over the events, updating the top routes whenever they change.
+
+Query 2: Profitable Areas
+This query aims to find the most profitable areas for taxi drivers. It calculates profitability per cell by:
+
+Computing the median profit (fare plus tip) for trips starting in the cell during the last 15 minutes.
+
+Counting the number of empty taxis (distinct medallions from drop-offs) in that cell during the last 30 minutes.
+
+Dividing the median profit by the number of empty taxis.
+The output displays the top 10 cells with the highest profitability, along with the corresponding pickup/dropoff times and the processing delay.
 
 ## Features
 - Data loading and preprocessing
