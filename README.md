@@ -91,3 +91,24 @@ To run this project, you need the following dependencies and versions:
 * Add an open-source license, e.g., Apache 2.0;
 * convert README in pdf
 * keep one report for all projects
+
+# Project2
+
+## Queries
+
+1. **Data Import Query:** Loads raw data from external sources (e.g., CSV files, databases) into a working dataset.  
+2. **Data Cleaning Query:** Handles missing values, removes duplicates, and standardizes data types to prepare the dataset for analysis.  
+3. **Exploratory Data Analysis Query:** Computes summary statistics and visualizes distributions to uncover patterns and trends within the data.  
+4. **Aggregation Query:** Groups and summarizes data by relevant categories to highlight key metrics and trends.  
+5. **Visualization Query:** Creates various plots and charts to visually communicate data relationships and insights.  
+6. **Model Training Query:** Splits the data into training and testing sets, applies machine learning algorithms, and tunes model parameters.  
+7. **Model Evaluation Query:** Assesses model performance using appropriate metrics, such as accuracy, precision, recall, or RMSE.
+
+## Features
+- Data loading and preprocessing
+- Exploratory data analysis (EDA)
+- Data visualization
+- Model training and evaluation (if applicable)
+- Insights and conclusions drawn from the analysis
+
+  
