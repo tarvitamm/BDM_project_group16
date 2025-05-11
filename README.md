@@ -96,7 +96,7 @@ To run this project, you need the following dependencies and versions:
 
 ## Queries
 
-1. **Data Import Query:** Loads raw data from external sources (e.g., CSV files, databases) into a working dataset.  
+1. **Data Import Query:** Loads raw data from external sources into a working dataset.  
 2. **Data Cleaning Query:** Handles missing values, removes duplicates, and standardizes data types to prepare the dataset for analysis.  
 3. **Exploratory Data Analysis Query:** Computes summary statistics and visualizes distributions to uncover patterns and trends within the data.  
 4. **Aggregation Query:** Groups and summarizes data by relevant categories to highlight key metrics and trends.  
@@ -111,4 +111,95 @@ To run this project, you need the following dependencies and versions:
 - Model training and evaluation (if applicable)
 - Insights and conclusions drawn from the analysis
 
-  
+  # Project 4: Airline Delay and Cancellation Prediction
+
+This project focuses on analyzing and preparing flight data for the purpose of predicting airline cancellations using Apache Spark. We leverage data engineering, feature engineering, and exploratory data analysis techniques to prepare the dataset for machine learning modeling.
+
+---
+
+## Part 1: Data Ingestion and Setup
+
+- Loaded raw 2009 airline data into Spark.
+- Converted to a structured DataFrame with inferred schema.
+- Saved the data in Parquet format, partitioned by `Year` and `Month` for efficient processing.
+
+---
+
+## Part 2: Data Cleaning and Preprocessing
+
+- Removed diverted flights.
+- Handled missing values in key columns.
+- Renamed relevant columns.
+- Added derived features such as `DayOfWeek` and `Month`.
+- Saved the clean dataset as partitioned Parquet files.
+
+---
+
+## Part 3: Exploratory Data Analysis (EDA)
+
+- Analyzed carrier distributions and cancellation reasons.
+- Visualized:
+  - Top 10 carriers
+  - Cancellation reason distribution
+  - Class imbalance between cancelled and non-cancelled flights
+
+**Key Finding:**  
+Cancellation reasons A and B were the most common. Cancellations are a minority class, highlighting a class imbalance problem.
+
+---
+
+## Part 4: Feature Engineering
+
+- Encoded categorical features using `StringIndexer` and `OneHotEncoder`.
+- Combined all features into a single vector using `VectorAssembler`.
+- Prepared the dataset for modeling.
+
+---
+
+## Part 5: Modeling
+
+- Trained four classification models:
+  - Logistic Regression
+  - Decision Tree
+  - Random Forest
+  - Gradient-Boosted Trees (GBT)
+- Used a 70/30 train-test split and sampling to reduce computational load.
+- Applied 3-fold cross-validation for hyperparameter tuning.
+
+**Evaluation Metrics:**
+- Area Under ROC Curve (AUC)
+- Accuracy
+
+**Key Finding:**  
+GBT achieved the best predictive performance, making it the most effective model for flight cancellation prediction.
+
+---
+
+## Part 6: Model Explainability
+
+- Used the `featureImportances` attribute of GBT to interpret predictions.
+- Most influential features:
+  - `Month`
+  - `DayOfWeek`
+  - `CRS_DEP_TIME`
+  - `FlightNum`
+  - Route-related features (e.g., `DEST_Vec_LGA`, `ORIGIN_Vec_LGA`)
+
+**Key Insight:**  
+Both schedule- and route-related variables significantly affect cancellation likelihood, reflecting real-world patterns like seasonal demand and airport congestion.
+
+---
+
+## Part 7: Model Persistence and Inference
+
+- Combined the best model (GBT) with the preprocessing pipeline and saved it using Spark’s `PipelineModel.write()`.
+- Reloaded and applied the model on 2010 flight data using the same data preparation steps.
+- Generated predictions with raw scores and class probabilities.
+
+**Key Finding:**  
+The model achieved:
+- **AUC**: 0.692  
+- **Accuracy**: 0.982  
+on 2010 data, showing consistent performance across different years.
+
+---
